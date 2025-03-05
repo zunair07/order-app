@@ -1,18 +1,17 @@
 const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Replace with your actual Lambda Function URL
-// const LAMBDA_FUNCTION_URL = "https://gykwbo7bzq7pu4m6alz7e4plja0capkg.lambda-url.us-east-1.on.aws/";
 // Retrieve Lambda Function URL from environment variable
 const LAMBDA_FUNCTION_URL = process.env.LAMBDA_FUNCTION_URL;
 console.log(LAMBDA_FUNCTION_URL)
 
 // if (!LAMBDA_FUNCTION_URL) {
-//   console.error("LAMBDA_FUNCTION_URL is not set. Make sure it's available in the environment.");
+//   console.error("❌ LAMBDA_FUNCTION_URL is not set. Make sure it's available in the environment.");
 //   process.exit(1);
 // }
 
@@ -71,7 +70,7 @@ app.post('/publish', async (req, res) => {
       </div>
     `);
   } catch (error) {
-    console.error("Error publishing message:", error.response ? error.response.data : error.message);
+    console.error("❌ Error publishing message:", error.response ? error.response.data : error.message);
     
     res.send(`
       <div style="text-align: center; margin-top: 50px;">
