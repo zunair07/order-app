@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Retrieve Lambda Function URL from environment variable
 const LAMBDA_FUNCTION_URL = process.env.LAMBDA_FUNCTION_URL;
-console.log(LAMBDA_FUNCTION_URL)
+console.log("hello"+LAMBDA_FUNCTION_URL)
 
 // if (!LAMBDA_FUNCTION_URL) {
 //   console.error("❌ LAMBDA_FUNCTION_URL is not set. Make sure it's available in the environment.");
