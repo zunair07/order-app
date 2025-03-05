@@ -6,8 +6,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Retrieve Lambda Function URL from environment variable
-// const LAMBDA_FUNCTION_URL = process.env.LAMBDA_FUNCTION_URL;
-const LAMBDA_FUNCTION_URL = "https://gykwbo7bzq7pu4m6alz7e4plja0capkg.lambda-url.us-east-1.on.aws/";
+const LAMBDA_FUNCTION_URL = process.env.LAMBDA_FUNCTION_URL;
+// const LAMBDA_FUNCTION_URL = "https://gykwbo7bzq7pu4m6alz7e4plja0capkg.lambda-url.us-east-1.on.aws/";
 console.log("hello"+LAMBDA_FUNCTION_URL)
 
 // if (!LAMBDA_FUNCTION_URL) {
