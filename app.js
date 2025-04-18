@@ -10,13 +10,13 @@ const LAMBDA_FUNCTION_URL = process.env.LAMBDA_FUNCTION_URL;
 
 // Product List (Dropdown Options)
 const products = [
-  { name: "Cricket Bat", id: "SPORT123", category: "Sports" },
-  { name: "T-Shirt", id: "CLOTH123", category: "Clothing" }
+  { name: "Cricket Bat", id: "SPORT123", Category: "Sports" },
+  { name: "T-Shirt", id: "CLOTH123", Category: "Clothing" }
 ];
 
 app.get('/', (req, res) => {
   let productOptions = products.map(product => 
-    `<option value="${product.id},${product.category}">${product.name}</option>`
+    `<option value="${product.id},${product.Category}">${product.name}</option>`
   ).join('');
 
   res.send(`
@@ -43,9 +43,7 @@ app.get('/', (req, res) => {
 
 app.post('/publish', async (req, res) => {
   const { productData, QuantityRequested, CustomerEmail } = req.body;
-  // const [ItemID, category] = productData.split(',');
-  let [ItemID, category] = productData.split(',');
-  category = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+  const [ItemID, category] = productData.split(',');
 
 
   // Construct query string for GET request
