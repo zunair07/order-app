@@ -43,7 +43,10 @@ app.get('/', (req, res) => {
 
 app.post('/publish', async (req, res) => {
   const { productData, QuantityRequested, CustomerEmail } = req.body;
-  const [ItemID, category] = productData.split(',');
+  // const [ItemID, category] = productData.split(',');
+  let [ItemID, category] = productData.split(',');
+  category = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+
 
   // Construct query string for GET request
   const queryParams = new URLSearchParams({
